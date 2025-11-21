@@ -1,6 +1,7 @@
 
 .profile {
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
@@ -32,8 +33,7 @@
 }
 
 .profile-contacts {
-	display: flex;
-	justify-content: center;
+	display: grid;
 	align-items: center;
 
 	margin: 20px 50px;
@@ -51,5 +51,7 @@
 
 .profile-contacts-link {
     font-size: 15px;
-	color: blue
+	color: blue;
+
+	text-decoration: underline;
 }

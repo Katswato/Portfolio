@@ -14,7 +14,7 @@ export function Profile() {
 	  <ProfileContacts
 	    email="raffemanzanilla@gmail.com"
         linkedIn="https://www.linkedin.com/in/raffe-manzanilla"
-		phoneNumber="000-000-0000"
+		gitHub="https://github.com/Katswato"
 	  />
 	</div>
   );
@@ -44,19 +44,58 @@ export function ProfileImage({imageName, image})
   );
 }
 
+
 interface ProfileContactsProps {
-  email: string;
+  email?: string;
   linkedIn?: string;
   phoneNumber?: string;
+  gitHub?: string;
 }
 
-export function ProfileContacts({email, linkedIn, phoneNumber}: ProfileContactsProps )
+export function ProfileContacts({email, linkedIn, phoneNumber, gitHub}: ProfileContactsProps )
 {
+  const validDivs = [];
+
+  const emailDiv = (
+  	<ProfileContact contactLabel="Email" contact={email}/>
+  );
+
+  const linkedInDiv = (
+	<ProfileContactLink contactLabel="LinkedIn" contact={linkedIn}/>
+  );
+
+  const phoneNumberDiv = (
+	<ProfileContact contactLabel="PhoneNumber" contact={phoneNumber}/>
+  );
+
+  const gitHubDiv = (
+    <ProfileContactLink contactLabel="Github" contact={gitHub}/>
+  );
+
+  //console.log("Hello this is a console log.");
+  //console.log("Email: ", email);
+  //console.log("LinkedInDiv: linkedInDiv);
+  //console.log(phoneNumberDiv);
+  if (email)
+  {
+    validDivs.push(emailDiv);
+  }
+  if (linkedIn)
+  {
+  	validDivs.push(linkedInDiv);
+  }
+  if (phoneNumber)
+  {
+  	validDivs.push(phoneNumberDiv);
+  }
+  if (gitHub)
+  {
+    validDivs.push(gitHubDiv);
+  }
+
   return (
     <div className="profile-contacts">
-	  <ProfileContact contactLabel="Email" contact={email}/>
-	  <ProfileContactLink contactLabel="LinkedIn" contact={linkedIn}/>
-	  <ProfileContact contactLabel="PhoneNumber" contact={phoneNumber}/>
+	  {validDivs}
 	</div>
   );
 }
