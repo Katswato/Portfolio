@@ -1,5 +1,8 @@
 import './profile.css';
 import pizzaLogo from './../images/pizza-on-paper-plate.jpg';
+import gitHubLogo from './../favicons/github-mark-white.png';
+import linkedInLogo from './../favicons/InBug-White.png';
+import mailLogo from './../favicons/MailFavicon.png';
 
 export function Profile() {
   return (
@@ -11,12 +14,33 @@ export function Profile() {
 	    imageName="Profile Picture"
 		image={pizzaLogo}
 	  />
-	  <ProfileContacts
-	    email="raffemanzanilla@gmail.com"
-        linkedIn="https://www.linkedin.com/in/raffe-manzanilla"
-		gitHub="https://github.com/Katswato"
-	  />
-	</div>
+	  
+	  <div className="profile-contacts">
+	    <div className="profile-favicon">
+          <ProfileContactImageLink
+	        imageName="Github Page"
+	        image={gitHubLogo} 
+	        link="https://github.com/Katswato"
+	      />
+	    </div>
+        <div className="profile-favicon">
+          <ProfileContactImageLink
+	        imageName="LinkedIn Page"
+	        image={linkedInLogo} 
+	        link="https://www.linkedin.com/in/raffe-manzanilla"
+	      />
+	    </div>
+        <div className="profile-favicon">
+          <ProfileContactImageLink
+	        imageName="Mail Page"
+	        image={mailLogo} 
+	        link="mailto:raffemanzanilla@gmail.com"
+	      />
+	    </div>
+
+	  </div>
+
+    </div>
   );
 }
 
@@ -96,6 +120,17 @@ export function ProfileContacts({email, linkedIn, phoneNumber, gitHub}: ProfileC
   return (
     <div className="profile-contacts">
 	  {validDivs}
+	</div>
+  );
+}
+
+export function ProfileContactImageLink({imageName, image, link})
+{
+  return (
+  	<div className="profile-github-favicon">
+	  <a href={link}>
+	    <img src={image} alt={imageName}/>
+	  </a>
 	</div>
   );
 }

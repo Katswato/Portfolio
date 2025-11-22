@@ -33,7 +33,7 @@
 }
 
 .profile-contacts {
-	display: grid;
+	display: flex;
 	align-items: center;
 
 	margin: 20px 50px;
@@ -54,4 +54,9 @@
 	color: blue;
 
 	text-decoration: underline;
+}
+
+.profile-favicon {
+	width: 30px;
+	margin: 10px;
 }
