@@ -128,7 +128,7 @@ export function ProfileContactImageLink({imageName, image, link})
 {
   return (
   	<div className="profile-github-favicon">
-	  <a href={link}>
+	  <a href={link} target="_blank">
 	    <img src={image} alt={imageName}/>
 	  </a>
 	</div>
