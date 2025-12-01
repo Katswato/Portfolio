@@ -1,8 +1,9 @@
 import "./projectSection.css";
 
-
-export function ProjectSection({name, description, date, youtubeLink, githubLink, downloadLink})
+import testVideo from "./../videos/smartGlasses.mp4"
+export function ProjectSection({name, description, date, youtubeLink, video, videoType, githubLink, downloadLink})
 {
+  console.log("ProjectSection rendered.");
   return(
     <div styles={{ "display":"flex", "justify-content":"center", "align-items":"center"}}>
 	  <div className="project-section">
@@ -18,7 +19,10 @@ export function ProjectSection({name, description, date, youtubeLink, githubLink
 	      <ProjectDownloadLink downloadLink={downloadLink}/>
 		</div>
 	    <div className="project-box-4">
-	      <ProjectYouTubeLink youtubeLink={youtubeLink}/>
+		  { youtubeLink === undefined ?
+		    <ProjectVideo video={video} videoType={videoType}/> :
+	        <ProjectYouTubeLink youtubeLink={youtubeLink}/>
+		  }
 		</div>
 	  </div>
 	</div>
@@ -63,10 +67,27 @@ export function ProjectYouTubeLink({youtubeLink})
 		frameBorder="0"
 		allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 		allowFullScreen
-		title="WarSim Demo"
+		title="Youtube Video"
 	  />
 	</div>
   );
+}
+
+export function ProjectVideo({video, videoType}) {
+  console.log("Video: ", {video});
+  console.log("TestVideo: ", {testVideo});
+
+  return(
+    <div>
+	  <video controls 
+	    width="560" 
+		height="315"
+		controlsList="nodownload"
+	  >
+	    <source src={video} type={videoType} />  
+	  </video>
+	</div>
+  )
 }
 
 export function ProjectGitHubLink({githubLink})
