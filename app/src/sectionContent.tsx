@@ -6,6 +6,9 @@ import {
   useEffect
 } from "react";
 
+import smartGlassesVideo from "./../videos/smartGlasses.mp4"
+import totalKneeReplacementVideo from "./../videos/totalKneeReplacement.mp4"
+
 interface SectionBoxData {
   name: string;
   className: string;
@@ -119,6 +122,8 @@ const generateProjectSectionDataDivs = (unfilteredCollection: ProjectSectionData
   	      description={data.description}
 		  date={data.date}
   	      youtubeLink={data.youtubeLink}
+		  video={data.video}
+		  videoType={data.videoType}
   	    />
 	  }
     );
@@ -141,14 +146,40 @@ const PersonalProjectSectionDataCollection : ProjectSectionDataCollection = {
   collection: [
     {
 	  name: "WarSim", 
-	  description: "A RTS styled game that allows you to control hand-programmed behavioural AI units that reference...",
+	  description: 
+	    "A RTS styled game that allows you to control hand-programmed behavioural AI units that reference \
+         real life military vehicles.\
+		",
 	  date: "2025 October - Present",
 	  youtubeLink: "https://www.youtube.com/embed/edhRERpTr1E",
 	  tags: ["All", "Game"]
 	},
 	{
+	  name: "Total Knee Replacement", 
+	  description: 
+	    "A game made in game-jam like constraints (1 day) that simulates the surgery of a knee. \
+		",
+	  date: "2025 November",
+	  video: totalKneeReplacementVideo,
+	  videoType: "video/mp4",
+	  tags: ["All", "Game"]
+	},
+    {
+	  name: "Smart Glasses", 
+	  description: 
+	    " \
+         real life military vehicles. \
+		",
+	  date: "2025 October - Present",
+	  video: smartGlassesVideo,
+	  videoType: "video/mp4",
+	  tags: ["All", "Embedded"]
+	},
+	{
 	  name: "Rhythm Aimer",
-	  description: "A rhythm game built using an arduino, LED matrices, various electrical components, and AVR libraries.",
+	  description: 
+	    "A rhythm game built using an arduino, LED matrices, various electrical components, and AVR libraries. \
+		",
 	  date: "2024 April - 2024 May",
 	  youtubeLink: "https://www.youtube.com/embed/edhRERpTr1E",
 	  tags: ["All", "Game", "Embedded"]
@@ -167,9 +198,6 @@ export function SectionContent({})
   console.log("After Tags: ", tags);
 
   useEffect(() => {
-    //if (tags.Count > 1) {
-	//  setTags(prevTags => prevTags.filter(heldTag !== "All"));
-	//}
     console.log("PostUseEffect Tags: ", tags);
     projectDivs = generateProjectSectionDataDivs(PersonalProjectSectionDataCollection.collection, tags, setTags);
   }, [tags]);
