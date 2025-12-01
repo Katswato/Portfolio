@@ -1,7 +1,10 @@
 import { ProjectSection } from "./projectSection";
 import { SectionBox } from "./sectionBox";
 import React from "react";
-import { useState } from "react";
+import { 
+  useState,
+  useEffect
+} from "react";
 
 interface SectionBoxData {
   name: string;
@@ -30,37 +33,44 @@ const PersonalSectionBoxDataCollection : SectionBoxDataCollection = {
     {  
 	  name: "All", 
 	  className: "default-section-box", 
-	  tags: ["All"]
+	  tag: "All"
 	},
     {
 	  name: "Game Projects", 
 	  className: "default-section-box", 
-	  tags: ["Game"]
+	  tag: "Game"
 	},
     {
 	  name: "Embedded System Projects", 
 	  className: "default-section-box", 
-	  tags: ["Embedded"]
+	  tag: "Embedded"
 	},
     {
 	  name: "Web Projects", 
 	  className: "default-section-box", 
-	  tags: ["Web"]
+	  tag: "Web"
 	}
   ]
   
 };
 
-const generateSectionBoxDataDivs = (collection: SectionBoxData[]) => {
+const generateSectionBoxDataDivs = (collection: SectionBoxData[], tags, setTags) => {
   let length = collection.length;
   let resultDivs = [];
   for (let i = 0; i < length; ++i) {
     let data = collection[i];
+	let isActivated = false;
+	if (tags?.includes(data.tag)) {
+	  isActivated = true;
+	}
     resultDivs.push({
 	  id: i, 
 	  div: <SectionBox
 	    sectionName={data.name}
-	    className={data.className}
+		isActive={isActivated}
+		tag={data.tag}
+		tags={tags}
+		setTags={setTags}
 	  />
 	});
   }
@@ -88,22 +98,13 @@ const hasTags = (tags: string[], heldTags: string[]) => {
 }
 
 const getWithTags = (unfilteredCollection: ProjectSectionData[], heldTags: string[]) => {
-  let unfilteredCollectionLength: int = unfilteredCollection.length;
-  let heldTagsLength: int = heldTags.length;
+  let filteredCollection = unfilteredCollection.filter(data => hasTags(data.tags, heldTags));
 
-  let filteredCollection: ProjectSectionData[] = [];
-  for (let i = 0; i < unfilteredCollectionLength; ++i) {
-    let indexTags = unfilteredCollection[i].tags;
-
-    if (hasTags(indexTags, heldTags)) {
-      filteredCollection.push(unfilteredCollection[i]);
-    }
-  }
   return filteredCollection;
 }
 
-const generateProjectSectionDataDivs = (unfilteredCollection: ProjectSectionDataCollection, heldTags: string[]) => {
-  let filteredCollection: ProjectSectionData[] = getWithTags(unfilteredCollection, heldTags);
+const generateProjectSectionDataDivs = (unfilteredCollection: ProjectSectionDataCollection, tags: string[], setTags) => {
+  let filteredCollection: ProjectSectionData[] = getWithTags(unfilteredCollection, tags);
   let filteredCollectionLength: int = filteredCollection.length;
 
   let resultDivs = [];
@@ -122,6 +123,7 @@ const generateProjectSectionDataDivs = (unfilteredCollection: ProjectSectionData
 	  }
     );
   }
+
   return (
     <div>
     { 
@@ -156,10 +158,22 @@ const PersonalProjectSectionDataCollection : ProjectSectionDataCollection = {
 
 export function SectionContent({})
 {
-  const [tags, setTags] = useState([]);
+  console.log("SectionContent rendered.");
+  const [tags, setTags] = useState(["All"]);
 
-  const sectionDivs = generateSectionBoxDataDivs(PersonalSectionBoxDataCollection.collection);
-  const projectDivs = generateProjectSectionDataDivs(PersonalProjectSectionDataCollection.collection, ["All"]);
+  console.log("Before Tags: ", tags);
+  let sectionDivs = generateSectionBoxDataDivs(PersonalSectionBoxDataCollection.collection, tags, setTags);
+  let projectDivs = generateProjectSectionDataDivs(PersonalProjectSectionDataCollection.collection, tags, setTags);
+  console.log("After Tags: ", tags);
+
+  useEffect(() => {
+    //if (tags.Count > 1) {
+	//  setTags(prevTags => prevTags.filter(heldTag !== "All"));
+	//}
+    console.log("PostUseEffect Tags: ", tags);
+    projectDivs = generateProjectSectionDataDivs(PersonalProjectSectionDataCollection.collection, tags, setTags);
+  }, [tags]);
+
   return(
     <div>
 	  <div style={{display: "flex", "justify-content": "center"}}>
@@ -169,19 +183,3 @@ export function SectionContent({})
 	</div>
   )
 }
-
-      //<div style={{display: "flex", "justify-content": "center"}}>
-      //  <SectionBox sectionName="All" className="default-section-box" />
-	  //  <SectionBox sectionName="Game Projects" className="default-section-box" />
-	  //  <SectionBox sectionName="Embedded System Projects" className="default-section-box" />
-      //  <SectionBox sectionName="Web Projects" className="default-section-box" />
-	  //</div>
-
-	  //<div>
-	  //  <ProjectSection 
-	  //    name="WarSim"
-	  //    description="A RTS styled game that allows you to control hand-programmed behavioural AI units that reference..."
-	  //    youtubeLink="https://www.youtube.com/embed/edhRERpTr1E" 
-	  //  />
-	  //</div>
-
