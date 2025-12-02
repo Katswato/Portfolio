@@ -50,7 +50,7 @@ export function ProjectData({date})
 export function ProjectDescription({description})
 {
   return(
-    <div>
+    <div className="project-description">
       {description}
 	</div>
   );
