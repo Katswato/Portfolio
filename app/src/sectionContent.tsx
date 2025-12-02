@@ -147,30 +147,36 @@ const PersonalProjectSectionDataCollection : ProjectSectionDataCollection = {
     {
 	  name: "WarSim", 
 	  description: 
-	    "A RTS styled game that allows you to control hand-programmed behavioural AI units that reference \
-         real life military vehicles.\
+	    "A RTS game that allows you to control hand-programmed behavioural AI units to defeat your enemies. \
+		 In this game, I wanted to simulate military technology. As I was prototyping, I found myself dissatisfied \
+		 with Unity's navigation mesh when creating flying units so I created my own behavioural system for aircraft. \
+		 This game was built using C# programming and utilizes parallelism to increase performance. \
 		",
 	  date: "2025 October - Present",
-	  youtubeLink: "https://www.youtube.com/embed/edhRERpTr1E",
+	  youtubeLink: "https://www.youtube.com/embed/iC2aBLneca8",
 	  tags: ["All", "Game"]
 	},
 	{
 	  name: "Total Knee Replacement", 
 	  description: 
-	    "A game made in game-jam like constraints (1 day) that simulates the surgery of a knee. \
+	    "A singleplayer 3D game that tests the user's skill in performing knee surgery. I wanted to create a game that was \
+		 in the field of healthcare and followed a Halloween theme since it was that time of year. The game was built in gamejam-like \
+		 like conditions. This game was built in Unity with the C# programming language. \
 		",
 	  date: "2025 November",
-	  video: totalKneeReplacementVideo,
-	  videoType: "video/mp4",
+	  youtubeLink: "https://www.youtube.com/embed/plvDetf4lO4",
 	  tags: ["All", "Game"]
 	},
     {
 	  name: "Smart Glasses", 
 	  description: 
 	    " \
-         real life military vehicles. \
+         A device that uses multiple trained AI models to interpret live audio and translate it into text, \
+		 translate American Sign Language, and detect color to help Americans with disabilities. This project was made with \
+		 in collaboration with 3 other students in our embedded systems class. This device was built using a raspberry pi, \
+		 an led screen, camera, microphone, and the implementation of several pytorch trained AI models. \
 		",
-	  date: "2025 October - Present",
+	  date: "2025 January - 2025 March",
 	  video: smartGlassesVideo,
 	  videoType: "video/mp4",
 	  tags: ["All", "Embedded"]
@@ -178,11 +184,36 @@ const PersonalProjectSectionDataCollection : ProjectSectionDataCollection = {
 	{
 	  name: "Rhythm Aimer",
 	  description: 
-	    "A rhythm game built using an arduino, LED matrices, various electrical components, and AVR libraries. \
+	    "Rhythm Aimer is a 1-2 player rhythm game built to challenge the timing and aim of players. When coming up with a project in my \
+		embedded systems class, I wanted to make a game similar to osu! because I'm a big fan of the game. osu! is a rhythm \
+		game where you aim for the circles and click them to the rhythm. In Rhythm Aimer, you aim for circles vertically and \
+		use a button to click. This game was built using arduino, led matrices, various electrical components, and C AVR libraries. \
 		",
 	  date: "2024 April - 2024 May",
 	  youtubeLink: "https://www.youtube.com/embed/edhRERpTr1E",
 	  tags: ["All", "Game", "Embedded"]
+	},
+    {
+	  name: "Chopping Game", 
+	  description: 
+	    "Chopping Game is a 2D singleplayer game where the goal is to cut down a bean stalk without getting hit by obstacles. \
+		 I wanted to make a game that was similar to a minigame I saw one of my friends playing. I built a similar game \
+		 with some creative twists. This game was built in Unity with the C# programming language. \
+		",
+	  date: "2025 November",
+	  youtubeLink: "https://www.youtube.com/embed/-FYqe8N6vAg",
+	  tags: ["All", "Game"]
+	},
+    {
+	  name: "Goblino Mode", 
+	  description: 
+	    "Goblino Mode is a 2D singleplay game where the goal is to defeat a boss without dying. Goblino Mode is my first game made \
+		 in Unity. I planned on making a metroidvania game with Terraria-like mechanics but I ended \
+		 up making a single incomplete boss fight. This game was built in Unity with the C# programming language. \
+		",
+	  date: "2025 November",
+	  youtubeLink: "https://www.youtube.com/embed/I3CVhHuohG8",
+	  tags: ["All", "Game"]
 	}
   ]
 };
