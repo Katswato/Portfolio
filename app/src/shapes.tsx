@@ -1,5 +1,5 @@
-export function Line({color, height, width})
-{
+
+export function Line({color, height, width}: {color: string, height: string, width: string}) {
   return (
 	<hr style = {{
 		border: 'none',
