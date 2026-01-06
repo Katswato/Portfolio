@@ -1,109 +1,132 @@
+import { 
+    type YoutubeData,
+    type VideoData,
+} from "./data";
+import {
+    useEffect
+} from "react";
+import testVideo from "./../videos/smartGlasses.mp4"
 import "./projectSection.css";
 
-import testVideo from "./../videos/smartGlasses.mp4"
-export function ProjectSection({name, description, date, youtubeLink, video, videoType, githubLink, downloadLink})
-{
+interface ProjectSectionProps {
+    name: string,
+    description: string,
+    date: string,
+    youtubeData?: YoutubeData,
+    videoData?: VideoData,
+    githubLink?: string,
+    downloadLink?: string,
+    tags: string[],
+    isActive: boolean,
+}
+
+export function ProjectSection({name, description, date, youtubeData, videoData, githubLink, downloadLink, tags, isActive}: ProjectSectionProps) {
   console.log("ProjectSection rendered.");
+
+  useEffect(() => {
+    console.log("[ProjectSection] name: ", name)
+    console.log("[ProjectSection] isActive: ", isActive)
+    console.log("[ProjectSection] tags: ", tags)
+  });
+  if (!isActive) {
+      return (
+          <></>
+      )
+  }
   return(
-    <div styles={{ "display":"flex", "justify-content":"center", "align-items":"center"}}>
-	  <div className="project-section">
-	    <div className="project-box-1">
-	      <ProjectName name={name}/>
-		</div>
-		<div className="project-box-2">
-		  <ProjectData date={date}/>
-		</div>
-        <div className="project-box-3">
-	      <ProjectDescription description={description}/>
-		  <ProjectGitHubLink githubLink={githubLink}/>
-	      <ProjectDownloadLink downloadLink={downloadLink}/>
-		</div>
-	    <div className="project-box-4">
-		  { youtubeLink === undefined ?
-		    <ProjectVideo video={video} videoType={videoType}/> :
-	        <ProjectYouTubeLink youtubeLink={youtubeLink}/>
-		  }
-		</div>
-	  </div>
-	</div>
+    <div className="project-section-container">
+      <div className="project-section-left">
+        <ProjectName name={name}/>
+        <ProjectData date={date}/>
+        <ProjectDescription description={description}/>
+        { githubLink 
+          ? <ProjectGitHub githubLink={githubLink}/>
+          : <></>
+        }
+        { downloadLink
+          ? <ProjectDownload downloadLink={downloadLink}/>
+          : <></>
+        }
+      </div>
+      <div className="project-section-right">
+        { youtubeData 
+          ? <ProjectYouTube youtubeLink={youtubeData.link}/>
+          : videoData
+            ? <ProjectVideo video={videoData.video} videoType={videoData.type}/>
+            : <></> 
+        }
+      </div>
+    </div>
   );
 }
 
-export function ProjectName({name})
-{
+export function ProjectName({name}: {name: string}) {
   return(
     <div className="project-name">
       {name}
-	</div>
+    </div>
   );
 }
 
-export function ProjectData({date})
-{
+export function ProjectData({date}: {date: string}) {
   return(
     <div className="project-date">
       {date}
-	</div>
+    </div>
   );
 }
 
-export function ProjectDescription({description})
-{
+export function ProjectDescription({description}: {description: string}) {
   return(
     <div className="project-description">
       {description}
-	</div>
+    </div>
   );
 }
 
-export function ProjectYouTubeLink({youtubeLink})
-{
+export function ProjectYouTube({youtubeLink}: {youtubeLink: string}) {
   return(
     <div>
-	  <iframe
-	    width="560"
-		height="315"
-		src={youtubeLink} 
-		frameBorder="0"
-		allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-		allowFullScreen
-		title="Youtube Video"
-	  />
-	</div>
+      <iframe
+        className={"project-video"}
+        src={youtubeLink} 
+        frameBorder="0"
+        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        title="Youtube Video"
+      />
+    </div>
   );
 }
 
-export function ProjectVideo({video, videoType}) {
+export function ProjectVideo({video, videoType}: {video: string, videoType: string}) {
   console.log("Video: ", {video});
   console.log("TestVideo: ", {testVideo});
 
   return(
     <div>
-	  <video controls 
-	    width="560" 
-		height="315"
-		controlsList="nodownload"
-	  >
-	    <source src={video} type={videoType} />  
-	  </video>
-	</div>
+      <video controls 
+        className={"project-video"}
+        controlsList="nodownload"
+      >
+        <source src={video} type={videoType} />  
+      </video>
+    </div>
   )
 }
 
-export function ProjectGitHubLink({githubLink})
-{
+export function ProjectGitHub({githubLink}: {githubLink: string}) {
   return(
     <div>
       {githubLink}
-	</div>
+    </div>
   );
 }
 
-export function ProjectDownloadLink({downloadLink})
-{
+export function ProjectDownload({downloadLink}: {downloadLink: string}) {
   return(
     <div>
       {downloadLink}
-	</div>
+    </div>
   );
 }
