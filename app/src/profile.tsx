@@ -6,65 +6,58 @@ import mailLogo from './../favicons/MailFavicon.png';
 
 export function Profile() {
   return (
-	<div className="profile">
-	  <ProfileName 
-	    name="Raffe Manzanilla"
-	  />
-	  <ProfileImage 
-	    imageName="Profile Picture"
-		image={pizzaLogo}
-	  />
-	  
-	  <div className="profile-contacts">
-	    <div className="profile-favicon">
-          <ProfileContactImageLink
-	        imageName="Github Page"
-	        image={gitHubLogo} 
-	        link="https://github.com/Katswato"
-	      />
-	    </div>
+    <div className="profile">
+      <ProfileName 
+        name="Raffe Manzanilla"
+      />
+      <ProfileImage 
+        name="Profile Picture"
+        image={pizzaLogo}
+      />
+      <div className="profile-contacts">
         <div className="profile-favicon">
-          <ProfileContactImageLink
-	        imageName="LinkedIn Page"
-	        image={linkedInLogo} 
-	        link="https://www.linkedin.com/in/raffe-manzanilla"
-	      />
-	    </div>
+          <ProfileContact
+            name="Github Page"
+            image={gitHubLogo} 
+            link="https://github.com/Katswato"
+          />
+        </div>
         <div className="profile-favicon">
-          <ProfileContactImageLink
-	        imageName="Mail Page"
-	        image={mailLogo} 
-	        link="mailto:raffemanzanilla@gmail.com"
-	      />
-	    </div>
-
-	  </div>
-
+          <ProfileContact
+            name="LinkedIn Page"
+            image={linkedInLogo} 
+            link="https://www.linkedin.com/in/raffe-manzanilla"
+          />
+        </div>
+        <div className="profile-favicon">
+          <ProfileContact
+            name="Mail Page"
+            image={mailLogo} 
+            link="mailto:raffemanzanilla@gmail.com"
+          />
+        </div>
+      </div>
     </div>
   );
 }
 
-interface ProfileNameProps {
-  name: string;
-}
-
-export function ProfileName({name}: ProfileNameProps)
+export function ProfileName({name}: {name: string})
 {
   return (
     <div className="profile" id="profile-name">
-	  {name} 
-	</div>
+      {name} 
+    </div>
   );
 }
 
-export function ProfileImage({imageName, image})
+export function ProfileImage({name, image}: {name: string, image: string})
 {
   return (
     <div className="profile-picture-wrap">
-	  <div className="profile-picture">
-	    <img src={image} alt={imageName} />  
-	  </div>
-	</div>
+      <div className="profile-picture">
+        <img src={image} alt={name} />  
+      </div>
+    </div>
   );
 }
 
@@ -73,86 +66,45 @@ interface ProfileContactsProps {
   email?: string;
   linkedIn?: string;
   phoneNumber?: string;
-  gitHub?: string;
+  github?: string;
 }
 
-export function ProfileContacts({email, linkedIn, phoneNumber, gitHub}: ProfileContactsProps )
-{
-  const validDivs = [];
-
+export function ProfileContacts({email, linkedIn, phoneNumber, github}: ProfileContactsProps ) {
   const emailDiv = (
-  	<ProfileContact contactLabel="Email" contact={email}/>
+    <ProfileContact name="Email" link={email}/>
   );
-
   const linkedInDiv = (
-	<ProfileContactLink contactLabel="LinkedIn" contact={linkedIn}/>
+    <ProfileContact name="LinkedIn" link={linkedIn}/>
   );
-
   const phoneNumberDiv = (
-	<ProfileContact contactLabel="PhoneNumber" contact={phoneNumber}/>
+    <ProfileContact name="PhoneNumber" link={phoneNumber}/>
   );
-
-  const gitHubDiv = (
-    <ProfileContactLink contactLabel="Github" contact={gitHub}/>
+  const githubDiv = (
+    <ProfileContact name="Github" link={github}/>
   );
-
-  //console.log("Hello this is a console log.");
-  //console.log("Email: ", email);
-  //console.log("LinkedInDiv: linkedInDiv);
-  //console.log(phoneNumberDiv);
-  if (email)
-  {
-    validDivs.push(emailDiv);
-  }
-  if (linkedIn)
-  {
-  	validDivs.push(linkedInDiv);
-  }
-  if (phoneNumber)
-  {
-  	validDivs.push(phoneNumberDiv);
-  }
-  if (gitHub)
-  {
-    validDivs.push(gitHubDiv);
-  }
-
+  
   return (
     <div className="profile-contacts">
-	  {validDivs}
-	</div>
+      {email ? <></> : emailDiv}
+      {linkedIn ? <></> : linkedInDiv}
+      {phoneNumber ? <></> : phoneNumberDiv}
+      {github ? <></> : githubDiv}
+    </div>
   );
 }
 
-export function ProfileContactImageLink({imageName, image, link})
-{
-  return (
-  	<div className="profile-github-favicon">
-	  <a href={link} target="_blank">
-	    <img src={image} alt={imageName}/>
-	  </a>
-	</div>
-  );
-}
+interface ProfileContactProps {
+    name?: string;
+    image?: string;
+    link?: string;
+};
 
-export function ProfileContact({contactLabel, contact})
-{
+export function ProfileContact({name, image, link}: ProfileContactProps) {
   return (
-  	<div>
-	  <div className="profile-contacts-label">{contactLabel}: </div>
-	  <div className="profile-contacts-description">{contact}</div>
-	</div>
-  );
-}
-
-export function ProfileContactLink({contactLabel, contact})
-{
-  return (
-  	<div>
-	  <div className="profile-contacts-label">{contactLabel}: </div>
-	  <div className="profile-contacts-link">
-		  <a href={contact}>{contact}</a>
-	  </div>
-	</div>
+    <div className="profile-github-favicon">
+      <a href={link} target="_blank">
+        <img src={image} alt={name}/>
+      </a>
+    </div>
   );
 }
