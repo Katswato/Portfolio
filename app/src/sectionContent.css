@@ -1,0 +1,24 @@
+#section-page {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#section-header {
+    display: flex;
+    flex-direction: start;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 1rem;
+    margin: 2rem 0rem 2rem 0rem;
+}
+
+#section-projects {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
