@@ -5,20 +5,17 @@
 
 .default-section-box {
 	border: 0.2em dashed white;
-	padding: 10px;
-	margin: 2em 1em;
+    padding: 1rem;
 }
 
 .default-section-box-active {
 	border: solid purple;
-	padding: 10px;
-	margin: 2em 1em;
+    padding: 1rem;
 }
+
 
 .default-section-box-active:hover {
 	border: solid violet;
-	padding: 10px;
-	margin: 2em 1em;
 	cursor: pointer;
 }
 

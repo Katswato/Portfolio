@@ -1,32 +1,43 @@
-import "./sectionBox.css";
 import {
     isArrayContentsEqual,
     isArraySubset,
 } from "./util";
 import { 
-  useState,
-  useEffect
+    allTags,
+} from "./data";
+import { 
+  useEffect,
 } from "react";
 
+import "./sectionBox.css";
 
 interface SectionBoxProps {
   sectionName: string;
+  allActive: boolean;
   isActive: boolean;
-  //className: string;
   sectionTags: string[];
   selectedTags: string[];
   setTags: (arg0: string[]) => void;
 }
 
-export function SectionBox({sectionName, isActive, sectionTags, selectedTags, setTags} : SectionBoxProps)
-{
+export function SectionBox({sectionName, allActive, isActive, sectionTags, selectedTags, setTags} : SectionBoxProps) {
   console.log("SectionBox rendered.");
   const determinedClassName = isActive ? "default-section-box-active" : "default-section-box";
 
+  useEffect(() => {
+    //console.log("[SectionBox] sectionName: ", sectionName)
+    //console.log("[SectionBox] sectionTags: ", sectionTags)
+    //console.log("[SectionBox] selectedTags: ", selectedTags)
+    //console.log("[SectionBox] isArrayContentsEqual(allTags, sectionTags): ", isArrayContentsEqual(allTags, sectionTags))
+    //console.log("[SectionBox] isArraySubset(selectedTags, sectionTags): ", isArraySubset(allTags, sectionTags))
+  });
+
   const updateTags = () => {
-	//if (isArrayContentsEqual(sectionTags, selectedTags) && isActive == false) {
-	//  return;
-	//}
+    if (allActive) {
+        if (isArrayContentsEqual(allTags, sectionTags)) { setTags([]); }
+        else { setTags(sectionTags); }
+        return;
+    }
 
 	if (isArraySubset(selectedTags, sectionTags)) {
       let tags = [];
@@ -43,16 +54,13 @@ export function SectionBox({sectionName, isActive, sectionTags, selectedTags, se
 	}
   }
 
-  useEffect(() => {
-  })
-  
   return (
     <div>
-	  <button onClick={()=>{updateTags()}}>
-	    <div className={determinedClassName}>
-	      {sectionName}
-	    </div>
-	  </button>
+	    <button onClick={()=>{updateTags()}}>
+	      <div className={determinedClassName}>
+	          {sectionName}
+	      </div>
+	    </button>
 	</div>
   );
 }
