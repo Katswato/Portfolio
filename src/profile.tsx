@@ -1,9 +1,9 @@
 import './profile.css';
-import pizzaLogo from './../images/pizza-on-paper-plate.jpg';
-import katswato from './../images/8db27875a10b1ca.png';
-import gitHubLogo from './../favicons/github-mark-white.png';
-import linkedInLogo from './../favicons/InBug-White.png';
-import mailLogo from './../favicons/MailFavicon.png';
+import pizzaLogo from './images/pizza-on-paper-plate.jpg';
+import katswato from './images/8db27875a10b1ca.png';
+import gitHubLogo from './favicons/github-mark-white.png';
+import linkedInLogo from './favicons/InBug-White.png';
+import mailLogo from './favicons/MailFavicon.png';
 
 export function Profile() {
   return (
