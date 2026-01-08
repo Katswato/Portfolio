@@ -7,6 +7,7 @@ import {
 } from "react";
 import testVideo from "./../videos/smartGlasses.mp4"
 import "./projectSection.css";
+import { generateDescriptionDiv } from "./util";
 
 interface ProjectSectionProps {
     name: string,
@@ -79,7 +80,7 @@ export function ProjectData({date}: {date: string}) {
 export function ProjectDescription({description}: {description: string}) {
   return(
     <div className="project-description">
-      {description}
+        {generateDescriptionDiv(description)}
     </div>
   );
 }
@@ -90,7 +91,6 @@ export function ProjectYouTube({youtubeLink}: {youtubeLink: string}) {
       <iframe
         className={"project-video"}
         src={youtubeLink} 
-        frameBorder="0"
         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         title="Youtube Video"

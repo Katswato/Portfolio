@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     margin: 1rem 0rem 1rem 0rem;
-    //border: solid red;
+    /*border: solid red; */
 }
 
 .project-section-left {
@@ -81,9 +81,20 @@
     margin: 0rem 0rem 1rem 0rem;
 }
 
+.project-text {
+    display: inline;
+    color: #ffffff;
+}
+
 .project-description {
     flex-wrap: wrap;
 	font-size: 18px;
+}
+
+.project-link {
+    display: inline;
+    color: "#90d6ff"; 
+    text-decoration: underline;
 }
 
 .project-video {
