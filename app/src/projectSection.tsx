@@ -5,7 +5,6 @@ import {
 import {
     useEffect
 } from "react";
-import testVideo from "./../videos/smartGlasses.mp4"
 import "./projectSection.css";
 import { generateDescriptionDiv } from "./util";
 
@@ -100,9 +99,6 @@ export function ProjectYouTube({youtubeLink}: {youtubeLink: string}) {
 }
 
 export function ProjectVideo({video, videoType}: {video: string, videoType: string}) {
-  console.log("Video: ", {video});
-  console.log("TestVideo: ", {testVideo});
-
   return(
     <div>
       <video controls 
