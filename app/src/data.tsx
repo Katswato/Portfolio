@@ -1,5 +1,3 @@
-import smartGlassesVideo from "./../videos/smartGlasses.mp4"
-
 export interface SectionBoxData {
   name: string;
   className: string;
@@ -41,8 +39,7 @@ export const allTags = [
 export const PersonalSectionBoxDataCollection : SectionBoxDataCollection = {
   collection: [
     {  
-	  name: "All", 
-	  className: "default-section-box", 
+	  name: "All", className: "default-section-box", 
 	  tags: ["Game", "Embedded", "Web"]
 	},
     {
@@ -74,19 +71,40 @@ export const PersonalProjectSectionDataCollection : ProjectSectionDataCollection
 		 with Unity's navigation mesh when creating flying units so I created my own behavioural system for aircraft. \
 		 This game was built using C# programming and utilizes parallelism to increase performance. \
 		",
-	  date: "2025 October - Present",
+	  date: "2025 October - 2025 November ==> 2026 January - Present",
       youtubeData: 
       { 
         link: "https://www.youtube.com/embed/iC2aBLneca8",
       },
 	  tags: ["Game"]
 	},
+    {
+	  name: "CitrusVineExtension", 
+	  description: 
+	    "An extension of the original group project \"CitrusVine.\" CitrusVineExtension polishes original features \
+         such as signing in, creating posts, and liking posts. New features include commenting, viewing profiles, changing account settings, and \
+         chatting.\n \
+         The original project was worked on by I and my team members: \
+         @Mailyn Nguyen{https://www.linkedin.com/in/mailyn-nguyen}, \
+         Jules Hacquebord-Gikas, \
+         @Arya Thammanna{https://www.linkedin.com/in/arya-thammanna}. \
+         View a video of the original project @here{https://www.youtube.com/embed/Yy4bTKURqo4}.\
+         This web project was built using ReactJS, TailwindCSS, Express, and MySQL. \
+        \
+		",
+	  date: "2025 January - 2025 March ==> 2025 December - 2026 January",
+      youtubeData: 
+      { 
+        link: "https://www.youtube.com/embed/8ZaaoXi2v30",
+      },
+	  tags: ["Web"]
+	},
 	{
 	  name: "Total Knee Replacement", 
 	  description: 
 	    "A singleplayer 3D game that tests the user's skill in performing knee surgery. I wanted to create a game that was \
-		 in the field of healthcare and followed a Halloween theme since it was that time of year. The game was built in gamejam-like \
-		 like conditions. This game was built in Unity with the C# programming language. \
+		 in the field of healthcare. The game follows a horror theme because of the Halloween holiday. The game was built in \
+         Unity with the C# programming language. \
 		",
 	  date: "2025 November",
 	  youtubeData: 
@@ -101,13 +119,13 @@ export const PersonalProjectSectionDataCollection : ProjectSectionDataCollection
 	    " \
          A device that uses multiple trained AI models to interpret live audio and translate it into text, \
 		 translate American Sign Language, and detect color to help Americans with disabilities. This project was made with \
-		 in collaboration with 3 other students in our embedded systems class. This device was built using a raspberry pi, \
-		 an led screen, camera, microphone, and the implementation of several pytorch trained AI models. \
+		 in collaboration with 3 other students in our embedded systems class: @Connor Claborn{https://www.linkedin.com/in/connor-claborn}, \
+         @Emily Clark{https://www.linkedin.com/in/emily-clark-9423081b0}, and @Catherine Truong{https://www.linkedin.com/in/catherinedaitruong}. \
+         This device was built using a raspberry pi, an led screen, camera, microphone, and the implementation of several pytorch trained AI models. \
 		",
 	  date: "2025 January - 2025 March",
-	  videoData: {
-        video: smartGlassesVideo,
-        type: "video/mp4",
+	  youtubeData: {
+          link: "https://www.youtube.com/embed/1Q_i-f0icV0"
       },
 	  tags: ["Embedded"]
 	},
