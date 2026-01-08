@@ -5,3 +5,7 @@
 # React Router
 /.react-router/
 /build/
+app/images
+app/src/]
+app/videos
+style.css
