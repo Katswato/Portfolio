@@ -27,10 +27,8 @@
 }
 
 .profile-picture {
-	width: 100%;
-	height: 100%;
 	
-	object-fit: cover;
+    transform: scale(2);
 }
 
 .profile-contacts {
