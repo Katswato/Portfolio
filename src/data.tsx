@@ -71,7 +71,7 @@ export const PersonalProjectSectionDataCollection : ProjectSectionDataCollection
 		 with Unity's navigation mesh when creating flying units so I created my own behavioural system for aircraft. \
 		 This game was built using C# programming and utilizes parallelism to increase performance. \
 		",
-	  date: "2025 October - 2025 November ==> 2026 January - Present",
+	  date: "2025 October - 2025 November ⟹  2026 January - Present",
       youtubeData: 
       { 
         link: "https://www.youtube.com/embed/iC2aBLneca8",
@@ -92,7 +92,7 @@ export const PersonalProjectSectionDataCollection : ProjectSectionDataCollection
          This web project was built using ReactJS, TailwindCSS, Express, and MySQL. \
         \
 		",
-	  date: "2025 January - 2025 March ==> 2025 December - 2026 January",
+	  date: "2025 January - 2025 March ⟹  2025 December - 2026 January",
       youtubeData: 
       { 
         link: "https://www.youtube.com/embed/8ZaaoXi2v30",
