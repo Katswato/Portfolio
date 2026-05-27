@@ -64,14 +64,30 @@ export const PersonalSectionBoxDataCollection : SectionBoxDataCollection = {
 export const PersonalProjectSectionDataCollection : ProjectSectionDataCollection = {
   collection: [
     {
+	  name: "Fluid Simulator", 
+	  description: 
+	    "A fluid simulation that allows you to control several parameters such as pressure and viscosity to modify \
+         fluid behaviour. I wanted to gain more experience with building simulation technology and thought that fluid simulation\
+		 would be a good learning experience. I learned a lot about space partitioning algorithms and parallelization on the CPU \
+         and GPU. This game was built using C# and HLSL in the Unity game engine.\
+		",
+	  date: "2026 April - 2026 May",
+      youtubeData: 
+      { 
+        link: "https://www.youtube.com/embed/Tkm-qr3VSS0",
+      },
+	  tags: ["Game"]
+	},
+    {
 	  name: "WarSim", 
 	  description: 
 	    "A RTS game that allows you to control hand-programmed behavioural AI units to defeat your enemies. \
 		 In this game, I wanted to simulate military technology. As I was prototyping, I found myself dissatisfied \
 		 with Unity's navigation mesh when creating flying units so I created my own behavioural system for aircraft. \
-		 This game was built using C# programming and utilizes parallelism to increase performance. \
+		 I quickly found that having a lot of entities with the same behavioural logic causes frame drops and had to employ \
+         some multithreading to lighten the load. This game was built using C# programming in the Unity game engine. \
 		",
-	  date: "2025 October - 2025 November ⟹  2026 January - Present",
+	  date: "2025 October - 2025 November, 2026 January",
       youtubeData: 
       { 
         link: "https://www.youtube.com/embed/iC2aBLneca8",
